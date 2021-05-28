@@ -1,0 +1,23 @@
+#include <string>
+#include <vector>
+#include <map>
+
+using namespace std;
+
+int solution(vector<vector<string>> clothes) {
+    int answer = 1;
+    map <string,int> m;
+    
+    for(auto temp: clothes)
+    {
+        m[temp[1]] +=1;
+    }
+    
+    map<string,int>::iterator iter;
+    for(iter=m.begin(); iter !=m.end(); iter++ )
+    {
+        answer *= iter->second +1;
+    }
+
+    return answer-1;
+}
